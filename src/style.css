@@ -1,3 +1,43 @@
 body {
+  font-family: Arial, Helvetica, sans-serif;
   background-color: aqua;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+.sidebar {
+  background-color: rgb(247, 234, 231);
+  color: rgb(168, 31, 0);
+  width: 20vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  font-weight: 800;
+}
+.main {
+  background-color: white;
+  height: 100vh;
+  width: 80vw;
+}
+
+li {
+  list-style: none;
+}
+
+.modal-content {
+  height: 150px;
+  width: 250px;
+  background-color: white;
+  position: absolute;
+  border: solid 2px black;
+}
+
+.addbutton {
+  margin-top: 50px;
+}
+
+.tasknameinput {
+  height: 35px;
 }
