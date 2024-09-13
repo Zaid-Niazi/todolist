@@ -1,5 +1,5 @@
 import { main, taskAppender, taskContainer } from "../index";
-import { newTask } from "./tasks";
+import { newTask, taskArray } from "./tasks";
 const modal = document.createElement("div");
 
 function modalCreator() {
@@ -46,6 +46,10 @@ function taskListMaker(taskname) {
   taskContainer.append(listItem);
   main.append(taskContainer);
   newTask(taskname);
+
+  for (let i = 0; i < taskArray.length; i++) {
+    console.log(taskArray[i].taskName);
+  }
 }
 
 export { modalCreator, modalRemover, taskListMaker };

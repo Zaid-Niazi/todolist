@@ -13,7 +13,6 @@ function taskArrayPusher(newTaskItem) {
 function newTask(name) {
   const newTaskItem = new taskObjectMaker(name);
   taskArrayPusher(newTaskItem);
-  console.log(taskArray);
 }
 
-export { newTask };
+export { newTask, taskArray };
