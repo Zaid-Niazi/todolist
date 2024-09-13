@@ -1,6 +1,6 @@
 import "./style.css";
 import { modalCreator, modalRemover } from "./modules/modal";
-import newTask from "./modules/tasks";
+import { taskListMaker } from "./modules/modal";
 
 const main = document.querySelector(".main");
 const addTaskButton = document.querySelector(".addbutton");
@@ -13,20 +13,5 @@ function taskAppender() {
   modalRemover();
 }
 const taskContainer = document.getElementById("taskcontainer");
-
-function taskListMaker(taskname) {
-  const listItem = document.createElement("li");
-  const taskItem = document.createElement("input");
-  taskItem.setAttribute("type", "radio"), taskItem.setAttribute("id", "radio");
-
-  const label = document.createElement("label");
-  label.textContent = taskname;
-  label.setAttribute("for", "radio");
-
-  listItem.append(taskItem, label);
-  taskContainer.append(listItem);
-  main.append(taskContainer);
-  newTask(taskname);
-}
 
 export { main, taskAppender, taskContainer };

@@ -1,12 +1,19 @@
+import { taskListMaker } from "./modal";
+const taskArray = [];
 class taskObjectMaker {
   constructor(taskName) {
     this.taskName = taskName;
   }
 }
 
-function newTask(name) {
-  const newTaskItem = new taskObjectMaker(name);
-  console.log(newTaskItem);
+function taskArrayPusher(newTaskItem) {
+  taskArray.push(newTaskItem);
 }
 
-export default newTask;
+function newTask(name) {
+  const newTaskItem = new taskObjectMaker(name);
+  taskArrayPusher(newTaskItem);
+  console.log(taskArray);
+}
+
+export { newTask };
