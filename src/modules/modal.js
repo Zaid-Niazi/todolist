@@ -1,4 +1,4 @@
-import { main } from "../index";
+import { main, taskAppender, taskContainer } from "../index";
 const modal = document.createElement("div");
 
 function modalCreator() {
@@ -8,17 +8,28 @@ function modalCreator() {
         <input class="tasknameinput" placeholder="Task Name">
         <span class="close-btn">&times;</span>
         <p>Dynamic content for the modal</p>
-        <button id="modal-button">Click me</button>
-      </div>
+        <button type='submit' id="modal-button">Add</button>
+      
+        </div>
     `;
-  main.appendChild(modal);
+  modalAppender();
+}
+
+function modalAppender() {
+  taskContainer.appendChild(modal);
+  modalDom();
+}
+
+function modalDom() {
   const closeButton = document.querySelector(".close-btn");
+  const addButton = document.querySelector("#modal-button");
 
-  closeButton.addEventListener("click", removeModal);
+  addButton.addEventListener("click", taskAppender);
+  closeButton.addEventListener("click", modalRemover);
 }
 
-function removeModal(event) {
-  main.removeChild(modal);
+function modalRemover() {
+  taskContainer.removeChild(modal);
 }
 
-export default modalCreator;
+export { modalCreator, modalRemover };
