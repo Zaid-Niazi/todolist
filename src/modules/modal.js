@@ -1,9 +1,10 @@
-import { main, taskAppender } from "../index";
-import { taskContainer } from "./tasks";
-const modal = document.createElement("div");
+import { taskContainer, taskMaker } from "./tasks";
 
 function modalCreator() {
+  const modal = document.createElement("div");
+  modal.setAttribute("id", "modal");
   modal.classList.add(".modal");
+
   modal.innerHTML = `
       <div class="modal-content">
         <input class="tasknameinput" placeholder="Title">
@@ -20,24 +21,35 @@ function modalCreator() {
         <button type='submit' id="modal-button">Add</button>    
         </div>
     `;
-  modalAppender();
+  modalAppender(modal);
 }
 
-function modalAppender() {
+function modalAppender(modal) {
   taskContainer.appendChild(modal);
-  modalDom();
+  modalDom(modal);
 }
 
-function modalDom() {
-  const closeButton = document.querySelector(".close-btn");
-  const addButton = document.querySelector("#modal-button");
+function modalDom(modal) {
+  const closeButton = modal.querySelector(".close-btn");
+  const addButton = modal.querySelector("#modal-button");
 
   addButton.addEventListener("click", taskAppender);
   closeButton.addEventListener("click", modalRemover);
 }
 
+function taskAppender() {
+  const title = document.querySelector(".tasknameinput").value;
+  const description = document.querySelector(".taskdescription").value;
+  const date = document.querySelector(".duedate").value;
+  const priority = document.getElementById("priority").value;
+
+  taskMaker(title, description, date, priority);
+  modalRemover();
+}
+
 function modalRemover() {
-  taskContainer.removeChild(modal);
+  const modalElement = document.getElementById("modal");
+  taskContainer.removeChild(modalElement);
 }
 
 export { modalCreator, modalRemover };

@@ -1,6 +1,13 @@
 const taskArray = [];
 const taskContainer = document.getElementById("taskcontainer");
 
+function taskMaker(title, description, date, priority) {
+  newTask(title, description, date, priority);
+  taskListMaker();
+}
+
+// core logic
+
 class taskObjectMaker {
   constructor(title, description, date, priority) {
     this.title = title;
@@ -17,10 +24,6 @@ function taskArrayPusher(newTaskItem) {
 function newTask(title, description, date, priority) {
   const newTaskItem = new taskObjectMaker(title, description, date, priority);
   taskArrayPusher(newTaskItem);
-}
-function taskMaker(title, description, date, priority) {
-  newTask(title, description, date, priority);
-  taskListMaker();
 }
 
 function formatDate(inputDate) {
