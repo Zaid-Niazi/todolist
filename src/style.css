@@ -48,5 +48,32 @@ li {
 #taskcontainer {
   padding: 0 35px 0 35px;
 }
+
+.taskdiv {
+  width: 70vw;
+  /* border: 2px solid black; */
+}
+
+.description {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-left: 20px;
+  border-bottom: 2px solid black;
+}
+
+#date,
+.description {
+  font-size: 0.7rem;
+  color: grey;
+}
+#prioritySpan {
+  position: relative;
+  left: 60vw;
+  bottom: 7vh;
+  background-color: rgb(247, 234, 231);
+  padding: 5px;
+  border-radius: 5px;
+}
+
 /* .nav {
 } */

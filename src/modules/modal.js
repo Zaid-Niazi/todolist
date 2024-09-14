@@ -1,16 +1,23 @@
-import { main, taskAppender, taskContainer } from "../index";
-import { newTask, taskArray } from "./tasks";
+import { main, taskAppender } from "../index";
+import { taskContainer } from "./tasks";
 const modal = document.createElement("div");
 
 function modalCreator() {
   modal.classList.add(".modal");
   modal.innerHTML = `
       <div class="modal-content">
-        <input class="tasknameinput" placeholder="Task Name">
+        <input class="tasknameinput" placeholder="Title">
+        <input class="taskdescription" placeholder="Description">
+        <input class="duedate" type='date'>
+       <label for="priority">Priority</label>
+        <select name="priority"  id="priority">
+        <option value="low">Low</option>
+        <option value="med">Medium</option>
+        <option value="high">High</option>
+       </select>
         <span class="close-btn">&times;</span>
         <p>Dynamic content for the modal</p>
-        <button type='submit' id="modal-button">Add</button>
-      
+        <button type='submit' id="modal-button">Add</button>    
         </div>
     `;
   modalAppender();
@@ -33,23 +40,4 @@ function modalRemover() {
   taskContainer.removeChild(modal);
 }
 
-function taskListMaker(taskname) {
-  const listItem = document.createElement("li");
-  const taskItem = document.createElement("input");
-  taskItem.setAttribute("type", "radio"), taskItem.setAttribute("id", "radio");
-
-  const label = document.createElement("label");
-  label.textContent = taskname;
-  label.setAttribute("for", "radio");
-
-  listItem.append(taskItem, label);
-  taskContainer.append(listItem);
-  main.append(taskContainer);
-  newTask(taskname);
-
-  for (let i = 0; i < taskArray.length; i++) {
-    console.log(taskArray[i].taskName);
-  }
-}
-
-export { modalCreator, modalRemover, taskListMaker };
+export { modalCreator, modalRemover };
