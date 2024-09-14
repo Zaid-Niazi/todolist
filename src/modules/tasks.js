@@ -1,3 +1,4 @@
+import { formatDate } from "./utils.js";
 const taskArray = [];
 const taskContainer = document.getElementById("taskcontainer");
 
@@ -6,41 +7,10 @@ function taskMaker(title, description, date, priority) {
   taskListMaker();
 }
 
-// core logic
-
-class taskObjectMaker {
-  constructor(title, description, date, priority) {
-    this.title = title;
-    this.description = description;
-    this.date = date;
-    this.priority = priority;
-  }
-}
-
-function taskArrayPusher(newTaskItem) {
-  taskArray.push(newTaskItem);
-}
-
 function newTask(title, description, date, priority) {
   const newTaskItem = new taskObjectMaker(title, description, date, priority);
   taskArrayPusher(newTaskItem);
 }
-
-function formatDate(inputDate) {
-  let date = new Date(inputDate);
-
-  let day = date.getDate();
-  let month = date.toLocaleString("default", { month: "short" });
-  let year = date.getFullYear();
-
-  return `${day} ${month} ${year}`;
-}
-
-let receivedDate = "2024-09-21";
-let formattedDate = formatDate(receivedDate);
-
-console.log(formattedDate);
-
 function taskListMaker() {
   const taskDiv = document.createElement("div");
   taskDiv.classList.add("taskdiv");
@@ -70,4 +40,20 @@ function taskListMaker() {
   }
   console.log(taskArray);
 }
+
+function taskArrayPusher(newTaskItem) {
+  taskArray.push(newTaskItem);
+}
+
+//object control
+
+class taskObjectMaker {
+  constructor(title, description, date, priority) {
+    this.title = title;
+    this.description = description;
+    this.date = date;
+    this.priority = priority;
+  }
+}
+
 export { taskMaker, taskContainer };
