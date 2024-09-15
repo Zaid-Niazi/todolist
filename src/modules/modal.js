@@ -17,7 +17,11 @@ function modalCreator() {
         <option value="high">High</option>
        </select>
         <span class="close-btn">&times;</span>
-        <p>Dynamic content for the modal</p>
+        <select name="project"  id="project">
+        <option value="Inbox">Inbox</option>
+        <option value="project 1">project 1</option>
+        <option value="Project 2">Project 2</option>
+       </select>
         <button type='submit' id="modal-button">Add</button>    
         </div>
     `;
@@ -42,8 +46,9 @@ function taskAppender() {
   const description = document.querySelector(".taskdescription").value;
   const date = document.querySelector(".duedate").value;
   const priority = document.getElementById("priority").value;
+  const project = document.getElementById("project").value;
 
-  taskMaker(title, description, date, priority);
+  taskMaker(title, description, date, priority, project);
   modalRemover();
 }
 

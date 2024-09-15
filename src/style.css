@@ -12,9 +12,10 @@ body {
   width: 20vw;
   height: 100vh;
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   font-weight: 800;
+  position: sticky;
 }
 .main {
   display: grid;
@@ -33,12 +34,19 @@ li {
   height: 150px;
   width: 250px;
   background-color: white;
-  position: absolute;
   border: solid 2px black;
 }
 
 .addbutton {
   margin-top: 50px;
+}
+
+.projects {
+  justify-self: center;
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  font-size: 1rem;
 }
 
 .tasknameinput {
@@ -47,6 +55,10 @@ li {
 
 #taskcontainer {
   padding: 0 35px 0 35px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: scroll;
 }
 
 .taskdiv {
@@ -75,5 +87,28 @@ li {
   border-radius: 5px;
 }
 
+#pmodal {
+  position: absolute;
+  top: 30vh;
+  left: 50vw;
+}
+
 /* .nav {
 } */
+
+.ind {
+  background-color: aqua;
+}
+
+.projectnameinput {
+  height: 35px;
+}
+.newproject {
+  font-size: 1.2rem;
+}
+
+.projectscontainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}

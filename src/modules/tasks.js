@@ -1,59 +1,43 @@
-import { formatDate } from "./utils.js";
+import { item } from "./item";
 const taskArray = [];
 const taskContainer = document.getElementById("taskcontainer");
 
-function taskMaker(title, description, date, priority) {
-  newTask(title, description, date, priority);
+function taskMaker(title, description, date, priority, project) {
+  newTask(title, description, date, priority, project);
   taskListMaker();
 }
 
-function newTask(title, description, date, priority) {
-  const newTaskItem = new taskObjectMaker(title, description, date, priority);
+function newTask(title, description, date, priority, project) {
+  const newTaskItem = new taskObjectMaker(
+    title,
+    description,
+    date,
+    priority,
+    project
+  );
   taskArrayPusher(newTaskItem);
 }
 function taskListMaker() {
   const taskDiv = document.createElement("div");
   taskDiv.classList.add("taskdiv");
-  for (let i = 0; i < taskArray.length; i++) {
-    const listItem = document.createElement("li");
-
-    const taskItem = document.createElement("input");
-    const taskDescription = document.createElement("div");
-    taskItem.setAttribute("type", "radio"),
-      taskItem.setAttribute("id", `radio-${i}`);
-
-    const label = document.createElement("label");
-    label.textContent = taskArray[i].title;
-    const prioritySpan = document.createElement("span");
-    prioritySpan.setAttribute("id", "prioritySpan");
-    prioritySpan.textContent = taskArray[i].priority;
-    const date = formatDate(taskArray[i].date);
-    taskDescription.innerHTML = `${taskArray[i].description} <br>
-                                 <span id ='date'>${date}</span>`;
-    label.setAttribute("for", `radio-${i}`);
-    taskDescription.classList.add("description");
-
-    listItem.append(taskItem, label, taskDescription);
-    taskDiv.innerHTML = "";
-    taskDiv.append(listItem, prioritySpan);
-    taskContainer.append(taskDiv);
-  }
-  console.log(taskArray);
+  item(taskDiv);
 }
 
 function taskArrayPusher(newTaskItem) {
   taskArray.push(newTaskItem);
+  console.log(taskArray);
 }
 
 //object control
 
 class taskObjectMaker {
-  constructor(title, description, date, priority) {
+  constructor(title, description, date, priority, project) {
     this.title = title;
     this.description = description;
     this.date = date;
     this.priority = priority;
+    this.project = project;
   }
 }
 
-export { taskMaker, taskContainer };
+export { taskMaker, taskContainer, taskArray };
