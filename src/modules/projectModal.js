@@ -44,7 +44,7 @@ function pModalRemover() {
 
 function sidebarAppender() {
   const projectsDiv = document.querySelector(".projectscontainer");
-  projectsDiv.innerHTML = "";
+  projectsDiv.innerHTML = "<li>Inbox</li>";
 
   for (let i = 0; i <= projectsArray.length - 1; i++) {
     const listItem = document.createElement("li");

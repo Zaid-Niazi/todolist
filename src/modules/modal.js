@@ -11,17 +11,19 @@ function modalCreator() {
         <input class="tasknameinput" placeholder="Title">
         <input class="taskdescription" placeholder="Description">
         <input class="duedate" type='date'>
+
        <label for="priority">Priority</label>
         <select name="priority"  id="priority">
         <option value="low">Low</option>
         <option value="med">Medium</option>
         <option value="high">High</option>
        </select>
+
         <span class="close-btn">&times;</span>
+
         <select name="project"  id="project"> 
-        
-     
-       </select>
+      </select>
+
         <button type='submit' id="modal-button">Add</button>    
         </div>
     `;
