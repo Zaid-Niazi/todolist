@@ -1,4 +1,5 @@
 import { taskContainer, taskMaker } from "./tasks";
+import { projectsArray } from "./projectModal";
 
 function modalCreator() {
   const modal = document.createElement("div");
@@ -17,15 +18,27 @@ function modalCreator() {
         <option value="high">High</option>
        </select>
         <span class="close-btn">&times;</span>
-        <select name="project"  id="project">
-        <option value="Inbox">Inbox</option>
-        <option value="project 1">project 1</option>
-        <option value="Project 2">Project 2</option>
+        <select name="project"  id="project"> 
+        
+     
        </select>
         <button type='submit' id="modal-button">Add</button>    
         </div>
     `;
   modalAppender(modal);
+
+  projectsListMaker();
+}
+
+function projectsListMaker() {
+  const projectsDiv = document.querySelector("#project");
+  projectsDiv.innerHTML = `<option value="inbox">Inbox</option>`;
+
+  for (let i = 0; i <= projectsArray.length - 1; i++) {
+    const listItem = document.createElement("option");
+    listItem.textContent = projectsArray[i].name;
+    projectsDiv.append(listItem);
+  }
 }
 
 function modalAppender(modal) {

@@ -53,10 +53,12 @@ function sidebarAppender() {
   }
 }
 
+// project class
+
 class Project {
   constructor(name) {
     this.name = name;
   }
 }
 
-export { projectModal };
+export { projectModal, projectsArray };
