@@ -27,7 +27,8 @@ function pModalDom() {
 
 function pModCreator() {
   const projectName = document.querySelector(".projectnameinput").value;
-  pModalArrayPusher(projectName);
+  const newProject = new Project(projectName);
+  pModalArrayPusher(newProject);
   pModalRemover();
 }
 
@@ -39,17 +40,22 @@ function pModalArrayPusher(projectName) {
 function pModalRemover() {
   const pmodal = document.querySelector("#pmodal");
   main.removeChild(pmodal);
-  console.log(projectsArray);
 }
 
 function sidebarAppender() {
   const projectsDiv = document.querySelector(".projectscontainer");
   projectsDiv.innerHTML = "";
 
-  for (let i = 0; i <= projectsArray.length; i++) {
+  for (let i = 0; i <= projectsArray.length - 1; i++) {
     const listItem = document.createElement("li");
-    listItem.textContent = projectsArray[i];
+    listItem.textContent = projectsArray[i].name;
     projectsDiv.append(listItem);
+  }
+}
+
+class Project {
+  constructor(name) {
+    this.name = name;
   }
 }
 
