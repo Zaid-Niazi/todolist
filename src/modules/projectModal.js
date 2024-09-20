@@ -1,6 +1,8 @@
 import { main } from "..";
+import { taskListMaker } from "./tasks";
 
 const projectsArray = [];
+let currentTab = "inbox";
 
 function projectModal() {
   const pModal = document.createElement("div");
@@ -44,13 +46,28 @@ function pModalRemover() {
 
 function sidebarAppender() {
   const projectsDiv = document.querySelector(".projectscontainer");
-  projectsDiv.innerHTML = "<li>Inbox</li>";
+  projectsDiv.innerHTML = "<li class='default'>inbox</li>";
+  const defaultTab = document.querySelector(".default");
+  defaultTab.addEventListener("click", changeTab);
 
   for (let i = 0; i <= projectsArray.length - 1; i++) {
     const listItem = document.createElement("li");
     listItem.textContent = projectsArray[i].name;
+    listItem.addEventListener("click", changeTab);
     projectsDiv.append(listItem);
   }
+}
+
+function changeTab(e) {
+  const container = document.getElementById("taskcontainer");
+  const taskDivs = container.querySelectorAll(".taskdiv");
+
+  taskDivs.forEach((taskDiv) => {
+    taskDiv.remove();
+  });
+
+  currentTab = e.target.textContent;
+  taskListMaker();
 }
 
 // project class
@@ -61,4 +78,4 @@ class Project {
   }
 }
 
-export { projectModal, projectsArray };
+export { projectModal, projectsArray, currentTab };

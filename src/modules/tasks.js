@@ -18,6 +18,7 @@ function newTask(title, description, date, priority, project) {
   taskArrayPusher(newTaskItem);
 }
 function taskListMaker() {
+  //remover here ?
   const taskDiv = document.createElement("div");
   taskDiv.classList.add("taskdiv");
   item(taskDiv);
@@ -40,4 +41,4 @@ class taskObjectMaker {
   }
 }
 
-export { taskMaker, taskContainer, taskArray };
+export { taskMaker, taskContainer, taskArray, taskListMaker };
