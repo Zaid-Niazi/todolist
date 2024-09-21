@@ -32,6 +32,11 @@ function modalCreator() {
   projectsListMaker();
 }
 
+function modalAppender(modal) {
+  taskContainer.appendChild(modal);
+  modalDom(modal);
+}
+
 function projectsListMaker() {
   const projectsDiv = document.querySelector("#project");
   projectsDiv.innerHTML = `<option value="inbox">Inbox</option>`;
@@ -42,12 +47,6 @@ function projectsListMaker() {
     projectsDiv.append(listItem);
   }
 }
-
-function modalAppender(modal) {
-  taskContainer.appendChild(modal);
-  modalDom(modal);
-}
-
 function modalDom(modal) {
   const closeButton = modal.querySelector(".close-btn");
   const addButton = modal.querySelector("#modal-button");

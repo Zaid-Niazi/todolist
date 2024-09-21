@@ -16,7 +16,8 @@ function item(taskDiv) {
       const individualItem = document.createElement("div");
 
       taskItem.setAttribute("type", "radio"),
-        taskItem.setAttribute("id", `radio-${i}`);
+        taskItem.setAttribute("id", `${i}`);
+      taskItem.addEventListener("change", itemRemover);
       label.setAttribute("for", `radio-${i}`);
       taskDescription.classList.add("description");
       prioritySpan.setAttribute("id", "prioritySpan");
@@ -33,5 +34,11 @@ function item(taskDiv) {
     }
   }
   taskContainer.append(taskDiv);
+}
+
+function itemRemover(e) {
+  const targetItem = document.getElementById(`item-${e.target.id}`);
+  taskArray.splice(`${e.target.id}`, 1);
+  targetItem.remove();
 }
 export { item };
