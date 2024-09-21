@@ -69,7 +69,12 @@ function taskAppender() {
 
 function modalRemover() {
   const modalElement = document.getElementById("modal");
-  taskContainer.removeChild(modalElement);
+
+  if (modalElement) {
+    taskContainer.removeChild(modalElement);
+  } else {
+    console.error("Modal element not found or already removed.");
+  }
 }
 
 export { modalCreator, modalRemover };

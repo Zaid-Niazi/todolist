@@ -3,6 +3,8 @@ import { taskArray, taskContainer } from "./tasks.js";
 import { currentTab } from "./projectModal.js";
 
 function item(taskDiv) {
+  taskDiv.innerHTML = "";
+
   for (let i = 0; i < taskArray.length; i++) {
     if (taskArray[i].project === currentTab) {
       const listItem = document.createElement("li");
@@ -27,10 +29,9 @@ function item(taskDiv) {
 
       listItem.append(taskItem, label, taskDescription);
       individualItem.append(listItem, prioritySpan);
-      taskDiv.innerHTML = "";
       taskDiv.append(individualItem);
-      taskContainer.append(taskDiv);
     }
   }
+  taskContainer.append(taskDiv);
 }
 export { item };

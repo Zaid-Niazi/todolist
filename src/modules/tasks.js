@@ -18,7 +18,8 @@ function newTask(title, description, date, priority, project) {
   taskArrayPusher(newTaskItem);
 }
 function taskListMaker() {
-  //remover here ?
+  taskContainer.innerHTML = "";
+
   const taskDiv = document.createElement("div");
   taskDiv.classList.add("taskdiv");
   item(taskDiv);
