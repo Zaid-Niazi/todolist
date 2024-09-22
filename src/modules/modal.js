@@ -9,6 +9,8 @@ function modalCreator() {
   modal.innerHTML = `
       <div class="modal-content">
         <input class="tasknameinput" placeholder="Title">
+        <span class="close-btn">&times;</span>
+
         <input class="taskdescription" placeholder="Description">
         <input class="duedate" type='date'>
 
@@ -19,7 +21,6 @@ function modalCreator() {
         <option value="high">High</option>
        </select>
 
-        <span class="close-btn">&times;</span>
 
         <select name="project"  id="project"> 
       </select>

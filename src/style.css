@@ -40,10 +40,25 @@ li:active {
 }
 
 .modal-content {
-  height: 150px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 5px;
+  height: 200px;
   width: 250px;
+  align-items: center;
+  justify-content: center;
   background-color: white;
   border: solid 2px black;
+  padding: 10px;
+}
+#modal-button {
+  width: 200px;
+}
+.tasknameinput,
+.taskdescription {
+  width: 200px;
+  height: 25px;
 }
 
 .addbutton {
@@ -51,6 +66,17 @@ li:active {
   cursor: pointer;
 }
 
+.close-btn {
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  background-color: #e0e0e0;
+}
+.close-btn:active {
+  background-color: #d0d0d0;
+}
 .addbutton:hover {
   background-color: #e0e0e0;
 }
