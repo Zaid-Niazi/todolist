@@ -1,6 +1,7 @@
 import { item } from "./item";
-const taskArray = [];
 const taskContainer = document.getElementById("taskcontainer");
+const savedTasks = localStorage.getItem("taskArray");
+const taskArray = savedTasks ? JSON.parse(savedTasks) : [];
 
 function taskMaker(title, description, date, priority, project) {
   newTask(title, description, date, priority, project);
@@ -27,7 +28,7 @@ function taskListMaker() {
 
 function taskArrayPusher(newTaskItem) {
   taskArray.push(newTaskItem);
-  console.log(taskArray);
+  localStorage.setItem("taskArray", JSON.stringify(taskArray));
 }
 
 //object control

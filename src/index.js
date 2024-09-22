@@ -1,6 +1,10 @@
 import "./style.css";
 import { modalCreator } from "./modules/modal";
-import { projectModal } from "./modules/projectModal";
+import { projectModal, sidebarAppender } from "./modules/projectModal";
+import { taskListMaker } from "./modules/tasks";
+
+taskListMaker();
+sidebarAppender();
 
 const main = document.querySelector(".main"); // No functionality for now
 const addTaskButton = document.querySelector(".addbutton");

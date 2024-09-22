@@ -38,7 +38,15 @@ function item(taskDiv) {
 
 function itemRemover(e) {
   const targetItem = document.getElementById(`item-${e.target.id}`);
-  taskArray.splice(`${e.target.id}`, 1);
+  const index = e.target.id;
+  function removeAt(taskArray, index) {
+    taskArray.splice(index, 1);
+  }
+
+  removeAt(taskArray, index);
   targetItem.remove();
+  localStorage.setItem("taskArray", JSON.stringify(taskArray));
+
+  console.log(localStorage.taskArray);
 }
 export { item };

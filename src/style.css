@@ -28,6 +28,15 @@ body {
 
 li {
   list-style: none;
+  cursor: pointer;
+}
+
+li:hover {
+  background-color: #e0e0e0;
+}
+
+li:active {
+  background-color: #d0d0d0;
 }
 
 .modal-content {
@@ -39,6 +48,15 @@ li {
 
 .addbutton {
   margin-top: 50px;
+  cursor: pointer;
+}
+
+.addbutton:hover {
+  background-color: #e0e0e0;
+}
+
+.addbutton:active {
+  background-color: #d0d0d0;
 }
 
 .projects {
